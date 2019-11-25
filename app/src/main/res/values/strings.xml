@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BimbelV1</string>
+    <string name="bimbel_name">Nama Bimbel</string>
+    <string name="bimbel_alamat">Alamat Bimbel</string>
+</resources>
