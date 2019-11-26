@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         rvBimbel.setHasFixedSize(true);
 
         list.addAll(BimbeData.getListData());
-
+        showRecyclerList();
     }
 
     private void showRecyclerList(){
