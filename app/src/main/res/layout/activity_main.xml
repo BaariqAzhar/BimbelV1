@@ -10,5 +10,7 @@
         android:id="@+id/rv_bimbel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_row_bimbel"/>
+        tools:listitem="@layout/item_row_bimbel"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"/>
 </LinearLayout>

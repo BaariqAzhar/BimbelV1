@@ -25,7 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class GoActivity extends AppCompatActivity {
+public class CahayaActivity extends AppCompatActivity {
 
     TextView tvName, tvJenjang, tvAlamat, tvDeskripsi;
     static String JSON_URL;
@@ -33,7 +33,7 @@ public class GoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_go);
+        setContentView(R.layout.activity_cahaya);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -58,7 +58,7 @@ public class GoActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 try {
                     JSONObject obj = new JSONObject(response);
-                    JSONObject bimbel = obj.getJSONObject("go");
+                    JSONObject bimbel = obj.getJSONObject("cahaya");
                     tvName.setText(bimbel.getString("name"));
                     tvJenjang.setText(bimbel.getString("jenjang"));
                     tvAlamat.setText(bimbel.getString("alamat"));
