@@ -12,18 +12,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BimbelActivity.MitraActivity"></activity>
-        <activity android:name=".BimbelActivity.IpiActivity" />
-        <activity android:name=".BimbelActivity.InsanActivity" />
-        <activity android:name=".BimbelActivity.BrawActivity" />
-        <activity android:name=".BimbelActivity.CahayaActivity" />
-        <activity android:name=".BimbelActivity.NurulActivity" />
-        <activity android:name=".BimbelActivity.SonyActivity" />
-        <activity android:name=".BimbelActivity.NeutronActivity" />
-        <activity android:name=".BimbelActivity.EfActivity" />
-        <activity android:name=".BimbelActivity.GoActivity" />
-        <activity android:name=".AboutUs" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.bimbelv1.BimbelActivity.MitraActivity"></activity>
+        <activity android:name="com.example.bimbelv1.BimbelActivity.IpiActivity" />
+        <activity android:name="com.example.bimbelv1.BimbelActivity.InsanActivity" />
+        <activity android:name="com.example.bimbelv1.BimbelActivity.BrawActivity" />
+        <activity android:name="com.example.bimbelv1.BimbelActivity.CahayaActivity" />
+        <activity android:name="com.example.bimbelv1.BimbelActivity.NurulActivity" />
+        <activity android:name="com.example.bimbelv1.BimbelActivity.SonyActivity" />
+        <activity android:name="com.example.bimbelv1.BimbelActivity.NeutronActivity" />
+        <activity android:name="com.example.bimbelv1.BimbelActivity.EfActivity" />
+        <activity android:name="com.example.bimbelv1.BimbelActivity.GoActivity" />
+        <activity android:name="com.example.bimbelv1.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

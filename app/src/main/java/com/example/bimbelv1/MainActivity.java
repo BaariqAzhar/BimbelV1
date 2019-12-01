@@ -1,20 +1,13 @@
 package com.example.bimbelv1;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.animation.LinearInterpolator;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.StringRequest;
 import com.example.bimbelv1.BimbelActivity.BrawActivity;
 import com.example.bimbelv1.BimbelActivity.CahayaActivity;
 import com.example.bimbelv1.BimbelActivity.EfActivity;
@@ -57,11 +50,6 @@ public class MainActivity extends AppCompatActivity {
                 showSelectedBimbel(data);
             }
         });
-    }
-
-    private void showAboutUs() {
-        Intent moveIntent = new Intent(MainActivity.this, AboutUs.class);
-        startActivity(moveIntent);
     }
 
     private void showSelectedBimbel(Bimbel bimbel) {
@@ -116,27 +104,4 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        setMode(item.getItemId());
-        return super.onOptionsItemSelected(item);
-    }
-
-    public void setMode(int selectedMode) {
-        switch (selectedMode) {
-            case R.id.action_list:
-                showRecyclerList();
-                break;
-
-            case R.id.action_aboutus:
-                showAboutUs();
-                break;
-        }
-    }
 }
