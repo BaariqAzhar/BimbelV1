@@ -1,11 +1,14 @@
 package com.example.bimbelv1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.bimbelv1.BimbelActivity.BrawActivity;
@@ -45,6 +48,19 @@ public class MainActivity extends AppCompatActivity {
         rvBimbel.setAdapter(listBimbelAdapter);
 
         listBimbelAdapter.setOnItemClickCallBack(new ListBimbelAdapter.OnItemClickCallback() {
+            @Override
+            public void onItemClicked(Bimbel data) {
+                showSelectedBimbel(data);
+            }
+        });
+    }
+
+    private void showRecyclerGrid(){
+        rvBimbel.setLayoutManager(new GridLayoutManager(this, 2));
+        GridBimbelAdapter gridHeroAdapter = new GridBimbelAdapter(list);
+        rvBimbel.setAdapter(gridHeroAdapter);
+
+        gridHeroAdapter.setOnItemClickCallBack(new GridBimbelAdapter.OnItemClickCallback() {
             @Override
             public void onItemClicked(Bimbel data) {
                 showSelectedBimbel(data);
@@ -101,6 +117,27 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
 
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        setMode(item.getItemId());
+        return super.onOptionsItemSelected(item);
+    }
+    public void setMode(int selectedMode) {
+        switch (selectedMode) {
+            case R.id.action_list:
+                showRecyclerList();
+                break;
+            case R.id.action_grid:
+                showRecyclerGrid();
+                break;
         }
     }
 

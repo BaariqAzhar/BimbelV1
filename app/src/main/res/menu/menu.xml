@@ -4,11 +4,12 @@
 
     <item
         android:id="@+id/action_list"
-        android:title="Home"
+        android:title="List"
         app:showAsAction="never"/>
+
     <item
-        android:id="@+id/action_aboutus"
+        android:id="@+id/action_grid"
         app:showAsAction="never"
-        android:title="About Us"/>
+        android:title="Grid"/>
 
 </menu>
