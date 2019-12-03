@@ -14,35 +14,34 @@ import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 
-public class ListBimbelAdapter extends RecyclerView.Adapter<ListBimbelAdapter.ListViewHolder> {
+public class GridBimbelAdapter extends RecyclerView.Adapter<GridBimbelAdapter.GridViewHolder> {
     private ArrayList<Bimbel> listBimbel;
 
-    private OnItemClickCallback onItemClickCallBack;
+    private GridBimbelAdapter.OnItemClickCallback onItemClickCallBack;
 
-    public void setOnItemClickCallBack(OnItemClickCallback onItemClickCallBack){
+    public void setOnItemClickCallBack(ListBimbelAdapter.OnItemClickCallback onItemClickCallback) {
         this.onItemClickCallBack = onItemClickCallBack;
     }
 
-    public ListBimbelAdapter(ArrayList<Bimbel> list) {
+    public GridBimbelAdapter(ArrayList<Bimbel> list) {
         this.listBimbel = list;
     }
 
     @NonNull
     @Override
-    public ListBimbelAdapter.ListViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_row_bimbel, viewGroup, false);
-        return new ListViewHolder(view);
+    public GridViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_grid_bimbel, viewGroup, false);
+        return new GridViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ListBimbelAdapter.ListViewHolder holder, int position) {
-        Bimbel bimbel = listBimbel.get(position);
+    public void onBindViewHolder(@NonNull final GridViewHolder holder, int position) {
+        Bimbel bimbel= listBimbel.get(position);
         Glide.with(holder.itemView.getContext())
-                .load(bimbel.getPhoto())
-                .apply(new RequestOptions().override(55, 55))
+                .load(listBimbel.get(position).getPhoto())
+                .apply(new RequestOptions().override(550, 550))
                 .into(holder.imgPhoto);
-        holder.tvName.setText(bimbel.getName());
-        holder.tvAlamat.setText(bimbel.getAlamat());
+        holder.tvNama.setText(bimbel.getName());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,15 +55,18 @@ public class ListBimbelAdapter extends RecyclerView.Adapter<ListBimbelAdapter.Li
         return listBimbel.size();
     }
 
-    public class ListViewHolder extends RecyclerView.ViewHolder {
-        ImageView imgPhoto;
-        TextView tvName, tvAlamat;
+    public void setOnItemClickCallBack(OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallBack = onItemClickCallBack;
+    }
 
-        public ListViewHolder(@NonNull View itemView) {
+    class GridViewHolder extends RecyclerView.ViewHolder {
+        ImageView imgPhoto;
+        TextView tvNama;
+
+        GridViewHolder(View itemView) {
             super(itemView);
             imgPhoto = itemView.findViewById(R.id.img_item_photo);
-            tvName = itemView.findViewById(R.id.tv_item_name);
-            tvAlamat = itemView.findViewById(R.id.tv_item_alamat);
+            tvNama = itemView.findViewById(R.id.tv_item_name);
         }
     }
 
