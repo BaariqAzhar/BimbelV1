@@ -3,4 +3,5 @@
     <string name="bimbel_name">Nama Bimbel</string>
     <string name="bimbel_alamat">Alamat Bimbel</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps_go">Map</string>
 </resources>
