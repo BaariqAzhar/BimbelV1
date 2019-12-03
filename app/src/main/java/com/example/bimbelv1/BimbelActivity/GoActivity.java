@@ -2,15 +2,18 @@ package com.example.bimbelv1.BimbelActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,22 +23,26 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.bimbelv1.MapsGO;
 import com.example.bimbelv1.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class GoActivity extends AppCompatActivity {
+public class GoActivity extends AppCompatActivity implements OnMapReadyCallback{
 
     TextView tvName, tvJenjang, tvAlamat, tvDeskripsi;
     static String JSON_URL;
-    private Button btnMap;
+    private GoogleMap mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_go);
+
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync((OnMapReadyCallback) this);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -44,15 +51,6 @@ public class GoActivity extends AppCompatActivity {
         tvJenjang = findViewById(R.id.tv_jenjang);
         tvAlamat = findViewById(R.id.tv_alamat);
         tvDeskripsi = findViewById(R.id.tv_deskripsi);
-        btnMap = findViewById(R.id.btnMap);
-
-        btnMap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent map = new Intent(GoActivity.this, MapsGO.class);
-                startActivity(map);
-            }
-        });
 
         JSON_URL = "https://raw.githubusercontent.com/BaariqAzhar/BimbelData/master/BimbelData.json";
         if (isConnected()) {
@@ -111,5 +109,12 @@ public class GoActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        LatLng go = new LatLng(-7.961279, 112.623911);
+        mMap.addMarker(new MarkerOptions().position(go).title("Marker in Bimbel GO"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(go));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(go, 16f));
+    }
 }
