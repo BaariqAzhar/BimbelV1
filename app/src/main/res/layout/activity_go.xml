@@ -61,4 +61,17 @@
         app:layout_constraintStart_toStartOf="@+id/tv_alamat"
         app:layout_constraintTop_toBottomOf="@+id/tv_alamat" />
 
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        tools:context=".BimbelActivity.GoActivity"
+        android:layout_width="336dp"
+        android:layout_height="207dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.814" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
