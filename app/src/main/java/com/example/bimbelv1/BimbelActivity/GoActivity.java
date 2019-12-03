@@ -2,11 +2,15 @@ package com.example.bimbelv1.BimbelActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.bimbelv1.MapsGO;
 import com.example.bimbelv1.R;
 
 import org.json.JSONException;
@@ -25,6 +30,7 @@ public class GoActivity extends AppCompatActivity {
 
     TextView tvName, tvJenjang, tvAlamat, tvDeskripsi;
     static String JSON_URL;
+    private Button btnMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,15 @@ public class GoActivity extends AppCompatActivity {
         tvJenjang = findViewById(R.id.tv_jenjang);
         tvAlamat = findViewById(R.id.tv_alamat);
         tvDeskripsi = findViewById(R.id.tv_deskripsi);
+        btnMap = findViewById(R.id.btnMap);
+
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent map = new Intent(GoActivity.this, MapsGO.class);
+                startActivity(map);
+            }
+        });
 
         JSON_URL = "https://raw.githubusercontent.com/BaariqAzhar/BimbelData/master/BimbelData.json";
         if (isConnected()) {
@@ -48,7 +63,7 @@ public class GoActivity extends AppCompatActivity {
         }
     }
 
-    private void loadBimbelData(){
+    private void loadBimbelData() {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, JSON_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -78,25 +93,23 @@ public class GoActivity extends AppCompatActivity {
     }
 
 
-
     private boolean isConnected() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
-                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
-            //we are connected to a network
-            return true;
-        } else
-            return false;
+        //we are connected to a network
+        return connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED;
 
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
+    public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if( id == android.R.id.home){
+        if (id == android.R.id.home) {
             this.finish();
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }
