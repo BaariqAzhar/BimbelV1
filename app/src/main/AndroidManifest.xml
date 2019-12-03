@@ -38,6 +38,7 @@
         <activity android:name=".BimbelActivity.NeutronActivity" />
         <activity android:name=".BimbelActivity.EfActivity" />
         <activity android:name=".BimbelActivity.GoActivity" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

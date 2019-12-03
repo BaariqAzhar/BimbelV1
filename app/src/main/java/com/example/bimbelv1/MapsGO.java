@@ -38,10 +38,9 @@ public class MapsGO extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-        // Add a marker in Sydney and move the camera
         LatLng go = new LatLng(-7.961279, 112.623911);
         mMap.addMarker(new MarkerOptions().position(go).title("Marker in Bimbel GO"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(go));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(go, 16f));
     }
 }
