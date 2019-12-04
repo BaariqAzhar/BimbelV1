@@ -17,10 +17,10 @@ import java.util.ArrayList;
 public class GridBimbelAdapter extends RecyclerView.Adapter<GridBimbelAdapter.GridViewHolder> {
     private ArrayList<Bimbel> listBimbel;
 
-    private GridBimbelAdapter.OnItemClickCallback onItemClickCallBack;
+    private OnItemClickCallback onItemClickCallback;
 
-    public void setOnItemClickCallBack(ListBimbelAdapter.OnItemClickCallback onItemClickCallback) {
-        this.onItemClickCallBack = onItemClickCallBack;
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
     }
 
     public GridBimbelAdapter(ArrayList<Bimbel> list) {
@@ -36,7 +36,7 @@ public class GridBimbelAdapter extends RecyclerView.Adapter<GridBimbelAdapter.Gr
 
     @Override
     public void onBindViewHolder(@NonNull final GridViewHolder holder, int position) {
-        Bimbel bimbel= listBimbel.get(position);
+        Bimbel bimbel = listBimbel.get(position);
         Glide.with(holder.itemView.getContext())
                 .load(listBimbel.get(position).getPhoto())
                 .apply(new RequestOptions().override(550, 550))
@@ -44,8 +44,8 @@ public class GridBimbelAdapter extends RecyclerView.Adapter<GridBimbelAdapter.Gr
         holder.tvNama.setText(bimbel.getName());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                onItemClickCallBack.onItemClicked(listBimbel.get(holder.getAdapterPosition()));
+            public void onClick(View v) {
+                onItemClickCallback.onItemClicked(listBimbel.get(holder.getAdapterPosition()));
             }
         });
     }
@@ -53,10 +53,6 @@ public class GridBimbelAdapter extends RecyclerView.Adapter<GridBimbelAdapter.Gr
     @Override
     public int getItemCount() {
         return listBimbel.size();
-    }
-
-    public void setOnItemClickCallBack(OnItemClickCallback onItemClickCallback) {
-        this.onItemClickCallBack = onItemClickCallBack;
     }
 
     class GridViewHolder extends RecyclerView.ViewHolder {

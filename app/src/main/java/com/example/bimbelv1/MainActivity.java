@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         GridBimbelAdapter gridHeroAdapter = new GridBimbelAdapter(list);
         rvBimbel.setAdapter(gridHeroAdapter);
 
-        gridHeroAdapter.setOnItemClickCallBack(new GridBimbelAdapter.OnItemClickCallback() {
+        gridHeroAdapter.setOnItemClickCallback(new GridBimbelAdapter.OnItemClickCallback() {
             @Override
             public void onItemClicked(Bimbel data) {
                 showSelectedBimbel(data);
