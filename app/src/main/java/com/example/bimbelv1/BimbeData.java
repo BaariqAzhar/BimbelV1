@@ -17,16 +17,16 @@ public class BimbeData {
     };
 
     private static String[] bimbelAlamat = {
-            "Jl. Raya Langsep No.2A, Pisang Candi, Kec. Sukun, Kota Malang, Jawa Timur 65146",
-            "Jalan Terusan Dieng No. 62-64 Klojen, Pisang Candi, Kec. Sukun, Kota Malang, Jawa Timur 65146",
-            "Jl. Bondowoso 2-Malang No.2, Gading Kasri, Kec. Klojen, Kota Malang, Jawa Timur 65115",
-            "Jalan Terusan Dieng No. 62-64 Klojen, Pisang Candi, Kec. Sukun, Kota Malang, Jawa Timur 65146",
-            "Jl. Bondowoso 2-Malang No.2, Gading Kasri, Kec. Klojen, Kota Malang, Jawa Timur 65115",
-            "Jalan Terusan Dieng No. 62-64 Klojen, Pisang Candi, Kec. Sukun, Kota Malang, Jawa Timur 65146",
-            "Jl. Bondowoso 2-Malang No.2, Gading Kasri, Kec. Klojen, Kota Malang, Jawa Timur 65115",
-            "Jalan Terusan Dieng No. 62-64 Klojen, Pisang Candi, Kec. Sukun, Kota Malang, Jawa Timur 65146",
-            "Jalan Terusan Dieng No. 62-64 Klojen, Pisang Candi, Kec. Sukun, Kota Malang, Jawa Timur 65146",
-            "Jl. Bondowoso 2-Malang No.2, Gading Kasri, Kec. Klojen, Kota Malang, Jawa Timur 65115",
+            "Jl. Merbabu No.38, Oro-oro Dowo, Kec. Klojen, Kota Malang, Jawa Timur 65112",
+            "Jl. Bandung No.18, Penanggungan, Kec. Klojen, Kota Malang, Jawa Timur 65113",
+            "Jl. Ronggo Warsito No.15, Klojen, Kec. Klojen, Kota Malang, Jawa Timur 65111",
+            "Jl. Pajajaran No.2, Klojen, Malang, Jawa Timur, 65119",
+            "Jl. Bandung No.5, Penanggungan, Kec. Klojen, Kota Malang, Jawa Timur 65113",
+            "JL. Kalpataru 5, No. 01, Jatimulyo, Kec. Lowokwaru, Kota Malang, Jawa Timur 65141",
+            "Jl. Kalpataru No.92, Jatimulyo, Kec. Lowokwaru, Kota Malang, Jawa Timur 65141  ",
+            "Jl. Raya Tlogomas No.48A, Tlogomas, Kec. Lowokwaru, Kota Malang, Jawa Timur 65144",
+            "Ruko Sawojajar Mas, Jl. Danau Ranau Blok A No.22-23, Sawojajar, Kec. Kedungkandang, Kota Malang, Jawa Timur 65139",
+            "Jl. Bungur No.35, Lowokwaru, Kec. Lowokwaru, Kota Malang, Jawa Timur 65141",
     };
 
     private static int[] bimbelImages = {

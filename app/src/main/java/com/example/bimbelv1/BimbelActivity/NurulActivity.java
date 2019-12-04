@@ -64,8 +64,8 @@ public class NurulActivity extends AppCompatActivity implements OnMapReadyCallba
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng go = new LatLng(-7.961279, 112.623911);
-        mMap.addMarker(new MarkerOptions().position(go).title("Ganesha Operation"));
+        LatLng go = new LatLng(-7.9622358,112.6217412);
+        mMap.addMarker(new MarkerOptions().position(go).title("Nurul Fikri"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(go));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(go, 16f));
     }

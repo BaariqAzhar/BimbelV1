@@ -64,7 +64,7 @@ public class GoActivity extends AppCompatActivity implements OnMapReadyCallback{
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng go = new LatLng(-7.961279, 112.623911);
+        LatLng go = new LatLng(-7.9613797,112.6216903);
         mMap.addMarker(new MarkerOptions().position(go).title("Ganesha Operation"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(go));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(go, 16f));

@@ -64,8 +64,8 @@ public class CahayaActivity extends AppCompatActivity implements OnMapReadyCallb
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng go = new LatLng(-7.961279, 112.623911);
-        mMap.addMarker(new MarkerOptions().position(go).title("Ganesha Operation"));
+        LatLng go = new LatLng(-7.9499317,112.6242813);
+        mMap.addMarker(new MarkerOptions().position(go).title("Cahaya Ilmu"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(go));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(go, 16f));
     }

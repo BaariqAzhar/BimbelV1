@@ -64,8 +64,8 @@ public class NeutronActivity extends AppCompatActivity implements OnMapReadyCall
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng go = new LatLng(-7.961279, 112.623911);
-        mMap.addMarker(new MarkerOptions().position(go).title("Ganesha Operation"));
+        LatLng go = new LatLng(-7.9745243,112.6323719);
+        mMap.addMarker(new MarkerOptions().position(go).title("Neutron"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(go));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(go, 16f));
     }

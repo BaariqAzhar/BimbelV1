@@ -64,8 +64,8 @@ public class SonyActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng go = new LatLng(-7.961279, 112.623911);
-        mMap.addMarker(new MarkerOptions().position(go).title("Ganesha Operation"));
+        LatLng go = new LatLng(-7.9749401,112.6329914);
+        mMap.addMarker(new MarkerOptions().position(go).title("Sony Sugema College"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(go));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(go, 16f));
     }

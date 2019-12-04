@@ -64,8 +64,8 @@ public class IpiActivity extends AppCompatActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng go = new LatLng(-7.961279, 112.623911);
-        mMap.addMarker(new MarkerOptions().position(go).title("Ganesha Operation"));
+        LatLng go = new LatLng(-7.9795657,112.6542303);
+        mMap.addMarker(new MarkerOptions().position(go).title("IPIEMS"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(go));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(go, 16f));
     }
