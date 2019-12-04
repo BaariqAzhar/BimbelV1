@@ -2,6 +2,13 @@ package com.example.bimbelv1.BimbelActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -21,15 +28,21 @@ import com.example.bimbelv1.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class SonyActivity extends AppCompatActivity {
+public class SonyActivity extends AppCompatActivity implements OnMapReadyCallback{
 
     TextView tvName, tvJenjang, tvAlamat, tvDeskripsi;
     static String JSON_URL;
+    private GoogleMap mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sony);
+
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync((OnMapReadyCallback) this);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -46,6 +59,15 @@ public class SonyActivity extends AppCompatActivity {
             finish();
             Toast.makeText(this, "Nyalakan Koneksi Internet", Toast.LENGTH_LONG);
         }
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        LatLng go = new LatLng(-7.961279, 112.623911);
+        mMap.addMarker(new MarkerOptions().position(go).title("Ganesha Operation"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(go));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(go, 16f));
     }
 
     private void loadBimbelData(){
